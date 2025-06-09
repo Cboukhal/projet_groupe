@@ -1,0 +1,39 @@
+table.SWOT {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+table.SWOT tr:nth-child(1),
+table.SWOT tr:nth-child(6) {
+    background-color: #394867;
+    color: goldenrod;
+    font-weight: bold;
+    text-align: center;
+}
+
+table.SWOT td {
+    padding: 16px;
+    border: 1px solid #ddd;
+    vertical-align: top;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+}
+
+table.SWOT tr:hover td {
+    background-color: #f1f1f1;
+}
+
+table.SWOT tr:nth-child(even):not(:nth-child(1)):not(:nth-child(6)) {
+    background-color: #e8edf0;
+}
+
+table.SWOT b {
+    font-size: 1.1em;
+    letter-spacing: 1px;
+}
