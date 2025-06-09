@@ -1,0 +1,214 @@
+<!-- Projet de 3 à 4 personnes avec :
+• un P0,
+• un SM,
+• un lead Dev,
+• un git master,
+• un responsable tests
+• un client
+- Choisir un projet dans chaque groupe.
+- Recueillir et rédiger l’expression du besoin client et débuter la rédaction du cahier
+des charges.
+- Réaliser une étude de marché, un benchmark avec un concurrent direct et un
+concurrent indirect.
+- Utiliser les outils SWOT et SMART pour vous positionner et définir une stratégie
+marketing digital.
+- Définissez vos clients cibles et réalisez des personas.
+- Présenter au moins 3 moodbords et établissez votre charte graphique (expliquer vos
+choix de couleurs, de typo et la réalisation de votre logo).
+- Finaliser le cahier des charges, le cahier des user stories, les spécifications
+fonctionnelles et techniques, les bugs, les tests et les recettes.
+- Planification : répartissez les rôles dans votre groupe et réalisez un organigramme,
+estimez le budget et le temps prévu pour votre projet.
+- Organisation : Présenter votre Product backlog, un sprint backlog et les outils de
+collaboration choisis.
+- Conception : Réalisez la maquette de votre projet, avec les zoning et wireframe,
+faites le prototypage.
+- Développement : développez la partie front de votre projet.
+- Mettez tout sur Github
+- Test : Réalisez les tests unitaires fonctionnels
+- Rédiger un support de présentation de type PowerPoint
+- Chaque groupe aura une heure pour présenter son travail et une démo de son site
+web. -->
+<!-- site jeu flash snake dame quizz(sujet à revoir)
+lundi mardi recherche sur code JS Dame quizz snake recherche cahier des charges  rechercher PO et SM voir étude de marché rechercher outil SWOT/SMART 
+rechercher client(surement enfant ados adulte tourner famille) rechercher personas -->
+<!-- idée de vente le retro gaming gratuit accessible pour tous -->
+ <!-- page d'acceuil présente les jeux en gif, click pour y accéder, confort utilisateur -->
+  <!DOCTYPE html>
+  <html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asset/style/projet.css">
+    <title>projet</title>
+  </head>
+  <body>
+    <header></header>
+    <main>
+        <h2>Règle</h2>
+        <section class="regle">
+            <h3>But du jeu</h3>
+                <p>Capturer ou immobiliser les pièces de son adversaire.</p>
+                <p>Ce sont les Blancs qui commencent la partie.</p>
+            <h3>Le déplacement</h3>
+                <p>Les pions se déplacent sur les diagonales, du joueur vers le joueur adverse. Ils ne se déplacent que d'une case à la fois sauf lorsqu'il y a une prise.
+                <br>Les dames se déplacent également sur les diagonales, d'autant de cases qu'elles le souhaitent du moment qu'aucune pièce n'est sur sa trajectoire.
+                </p>
+            <h3>La prise</h3>
+            <p>La prise est obligatoire et s'effectue aussi bien vers l'avant que vers l'arrière.
+                <br>Lorsqu'une case voisine sur la diagonale est occupée par un pion du joueur adverse, et qu'il y a une case libre derrière, ce pion doit être sauté. Il est ainsi pris et supprimé du jeu. On retrouve ce mécanisme de prise également dans un jeu traditionnel népalais, le Bagh Chal.
+                <br>Le pion déplacé peut capturer plusieurs pions à partir du moment où il peut être posé sur le damier entre deux prises.
+                <br>La dame prend comme un pion mais peut sauter plusieurs cases vides. Une dame peut changer de direction si une nouvelle prise est possible.
+                <br>Une prise peut s'effectuer vers l'avant ou vers l'arrière. La prise majoritaire est obligatoire, c'est-à-dire que si les deux options sont possibles, on doit prendre trois pions de préférence à deux dames (en revanche, en cas d'égalité numérique, on peut choisir la prise à effectuer).
+                <br>Un même pion ne peut pas être pris plusieurs fois au cours d'une même rafle.
+                <br>Il est interdit d'enlever les pions pris au fur et à mesure pendant une rafle : ils doivent impérativement être tous pris à la fin.
+            </p>
+            <h3>La promotion en dame</h3>
+            <p>La promotion a lieu lorsqu'un pion atteint la dernière rangée : celui-ci devient alors automatiquement une dame. <br>Il est d'usage de superposer deux pions pour représenter une dame.
+                Toutefois, si un pion vient à passer au-dessus de la dernière rangée au cours d'une prise multiple, il ne devient une dame que s'il finit la rafle sur une case de promotion.</p>
+            <h3>Fin de la partie</h3>
+            <p>Le joueur a perdu la partie lorsqu'il ne lui reste plus aucune pièce en jeu, ou bien, si c'est à lui de jouer, lorsque toutes ses pièces sont bloquées, c'est-à-dire dans l'impossibilité de prendre ou de se déplacer.
+                Un joueur peut aussi abandonner la partie s'il estime n'avoir aucune chance de gagner, ni même d'égaliser. C'est très souvent ainsi que s'achève une partie entre joueurs expérimentés.</p>
+                
+        </section>
+        <h2>Jeux</h2>
+        <section id="dames">
+            <table>
+                <tr>
+                    <!-- ligne1 -->
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                </tr>
+                <tr>
+                    <!-- ligne2 -->
+                     <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                </tr>
+                <tr>
+                    <!-- ligne3 -->
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                </tr>
+                <tr>
+                    <!-- ligne4 -->
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-noir"></div></td>
+                    <td class="b"></td>   
+                </tr>
+                <tr>
+                    <!-- ligne5 -->
+                    <td class="b"></td>
+                    <td class="n"></td>
+                    <td class="b"></td>
+                    <td class="n"></td>
+                    <td class="b"></td>
+                    <td class="n"></td>
+                    <td class="b"></td>
+                    <td class="n"></td>
+                    <td class="b"></td>
+                    <td class="n"></td>
+                </tr>
+                <tr>
+                    <!-- ligne6 -->
+                     <td class="n"></td>
+                    <td class="b"></td>
+                    <td class="n"></td>
+                    <td class="b"></td>
+                    <td class="n"></td>
+                    <td class="b"></td>
+                    <td class="n"></td>
+                    <td class="b"></td>
+                    <td class="n"></td>
+                    <td class="b"></td>
+                </tr>
+                <tr>
+                    <!-- ligne7 -->
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                </tr>
+                <tr>
+                    <!-- ligne8 -->
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                </tr>
+                <tr>
+                    <!-- ligne9 -->
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                </tr>
+                <tr>
+                    <!-- ligne10 -->
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                    <td class="n"><div class="pion-blanc"></div></td>
+                    <td class="b"></td>
+                </tr>
+            </table>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="./asset/js/projet.js"></script>
+    <script src="./asset/js/jquery-3.7.1.min.js"></script>
+  </body>
+  </html>
