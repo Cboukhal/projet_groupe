@@ -1,0 +1,61 @@
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+
+/* Conteneur principal */
+table {
+    border-collapse: collapse;
+    margin: 20px auto;
+    box-shadow: 0 0 10px #333;
+}
+
+/* Lignes et cellules */
+td {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    position: relative;
+}
+
+/* Cases blanches */
+.b {
+    background-color: #f0d9b5;
+}
+
+/* Cases noires */
+.n {
+    background-color: #b58863;
+}
+
+/* Style général des pions */
+td div {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    /* background-color: black; tu peux changer pour rouge / blanc si tu veux */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: inset 0 0 5px #000;
+}
+
+/* Animation de survol (facultatif mais joli) */
+.pion-noir:hover,
+.pion-blanc:hover {
+    outline: 2px solid #fff;
+    cursor: pointer;
+}
+
+.pion-noir {
+    background-color: black;
+}
+
+.pion-blanc {
+    background-color: white;
+    border: 2px solid #333;
+}
+.deplacement{
+    border: 1px  #333;
+}
