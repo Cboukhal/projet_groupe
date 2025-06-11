@@ -1,0 +1,34 @@
+
+/* Style de la grille */
+table {
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Style des cellules */
+td {
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 48px;
+    font-weight: bold;
+    border: 4px solid #1e3c72;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Effet au survol */
+td:hover {
+    background-color: #f0f8ff;
+}
+
+/* Classes optionnelles pour X et O */
+.x {
+    color: #e74c3c; /* rouge */
+}
+
+.o {
+    color: #3498db; /* bleu */
+}

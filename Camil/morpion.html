@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./asset/style/morpion.css">
+    <title>Morpion</title>
+</head>
+<body>
+    <h2>Régle</h2>
+        Choix des symboles : un joueur choisit les « X », l’autre les « O ».
+        <br>Premier joueur : décidez de qui commence. Traditionnellement, le joueur utilisant les « X » commence.
+        <h3>Déroulement de la Partie</h3>
+        <ul>
+            <li>Alternance des tours : les joueurs jouent à tour de rôle, en plaçant leur symbole dans une case vide de la grille.</li>
+            <li>Formation des lignes : le but est d’aligner trois symboles identiques horizontalement, verticalement ou en diagonale.</li>
+            <li><ul>Fin de partie :
+                <li>Victoire : le premier joueur à aligner trois de ses symboles gagne la partie.</li>
+                <li>Match nul : si toutes les cases sont remplies sans qu’un joueur ait aligné trois symboles, la partie se termine par un match nul.</li>
+            </ul></li>
+        </ul>
+        <h3>Anecdote</h3>
+        Le Morpion est un jeu très ancien dont les origines remontent à l’Antiquité. Des versions du jeu ont été trouvées dans les ruines de l’Empire Romain, et il a été joué sous diverses formes à travers les siècles. Sa simplicité et son accessibilité en ont fait un jeu universel, joué dans le monde entier sous différents noms et variantes.
+    <h2>Jeux</h2>
+    <p>Le joueur qui commence doit choisir sont symbole</p>
+    <button class="x">X</button><button class="o">O</button>
+    <table id="morpion">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <script src="./asset/js/jquery-3.7.1.min.js"></script>
+    <script src="./asset/js/morpion.js"></script>
+</body>
+</html>
