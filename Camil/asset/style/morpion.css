@@ -32,3 +32,9 @@ td:hover {
 .o {
     color: #3498db; /* bleu */
 }
+
+#message{
+    font-size: 24px; 
+    font-weight: bold; 
+    margin: 20px;
+}
