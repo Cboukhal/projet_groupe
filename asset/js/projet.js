@@ -12,6 +12,24 @@ for (let col = 0; col < nombreColonnes; col++) {
     }
 }
 
+function activerPions() {
+    const pionsNoirs = document.querySelectorAll("#dames div.pion-noir");
+    const pionsBlancs = document.querySelectorAll("#dames div.pion-blanc");
+
+    for (let i = 0; i < pionsNoirs.length; i++) {
+        pionsNoirs[i].addEventListener('click', () => {
+            dep = true;
+            couleur = 0;
+        });
+    }
+    for (let i = 0; i < pionsBlancs.length; i++) {
+        pionsBlancs[i].addEventListener('click', () => {
+            dep = true;
+            couleur = 1;
+        });
+    }
+}
+
 function deplacerPion(i, j) {
     colonnes[i+1][j+1].innerHTML = `<div class="deplacement"></div>`;
     colonnes[i-1][j+1].innerHTML = `<div class="deplacement"></div>`;
@@ -31,6 +49,7 @@ function deplacerPion(i, j) {
 function pion(){
     let dep = false;
     let couleur = 0;
+    activerPions();
     for (let i = 0; i < pionsNoirs.length; i++)
         {
             pionsNoirs[i].addEventListener('click', ()=>{
