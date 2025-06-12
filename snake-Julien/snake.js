@@ -1,55 +1,80 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
+const scoreDisplay = document.getElementById('score');
 
-// Paramètres du grille et du canvas
-const gridSize = 20;  // Chaque carré fait 20x20 pixels
-const canvasSize = canvas.width / gridSize;  // Nombre de cases sur le canvas
+const gridSize = 20;
+const canvasSize = canvas.width / gridSize;
 
 let snake = [{ x: 10, y: 10 }];
-let direction = { x: 0, y: 0 };  // Initialisation du serpent
-let food = { x: Math.floor(Math.random() * canvasSize), y: Math.floor(Math.random() * canvasSize) };
-
+let direction = { x: 0, y: 0 };
+let food = null;
 let gameOver = false;
+let score = 0;
 
-// Dessiner un carré sur le canvas
-function drawSquare(x, y, color) {
+const imgFood = new Image();
+imgFood.src = 'images/food.png';
+
+function generateFood() {
+  let newFood;
+  let isOnSnake;
+
+  do {
+    newFood = {
+      x: Math.floor(Math.random() * canvasSize),
+      y: Math.floor(Math.random() * canvasSize)
+    };
+
+    isOnSnake = snake.some(segment => segment.x === newFood.x && segment.y === newFood.y);
+  } while (isOnSnake);
+
+  return newFood;
+}
+
+function drawRect(x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
 }
 
-// Dessiner le serpent et la nourriture
 function drawGame() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  snake.forEach(segment => drawSquare(segment.x, segment.y, '#1FA055'));
+  // Dessiner le serpent (tête plus foncée)
+  snake.forEach((segment, index) => {
+    const color = index === 0 ? '#006400' : '#228B22';
+    drawRect(segment.x, segment.y, color);
+  });
 
-  drawSquare(food.x, food.y, '#FF7F7F');
+  // Dessiner la nourriture (image)
+  ctx.drawImage(imgFood, food.x * gridSize, food.y * gridSize, gridSize, gridSize);
 }
 
-// Mettre à jour la position du serpent
 function updateSnake() {
-  const newHead = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+  const newHead = {
+    x: snake[0].x + direction.x,
+    y: snake[0].y + direction.y
+  };
 
-  // Si le serpent mange la nourriture
   if (newHead.x === food.x && newHead.y === food.y) {
-    food = { x: Math.floor(Math.random() * canvasSize), y: Math.floor(Math.random() * canvasSize) };
+    snake.unshift(newHead);
+    food = generateFood();
+    score++;
+    scoreDisplay.textContent = 'Score: ' + score;
   } else {
-    snake.pop();  // Retirer le dernier segment si pas de nourriture mangée
+    snake.pop();
+    snake.unshift(newHead);
   }
-
-  snake.unshift(newHead);
 }
 
-// Vérifier les collisions
 function checkCollision() {
   const head = snake[0];
 
-  // Collision avec le mur
-  if (head.x < 0 || head.x >= canvasSize || head.y < 0 || head.y >= canvasSize) {
+  if (
+    head.x < 0 || head.x >= canvasSize ||
+    head.y < 0 || head.y >= canvasSize
+  ) {
     gameOver = true;
   }
 
-  // Collision avec le corps
   for (let i = 1; i < snake.length; i++) {
     if (head.x === snake[i].x && head.y === snake[i].y) {
       gameOver = true;
@@ -57,15 +82,16 @@ function checkCollision() {
   }
 
   if (gameOver) {
-    alert("Fin de partie!");
+    alert("Fin de partie !");
     snake = [{ x: 10, y: 10 }];
-    direction = { x: 0, y: 0 };
-    food = { x: Math.floor(Math.random() * canvasSize), y: Math.floor(Math.random() * canvasSize) };
+    direction = { x: 1, y: 0 };
+    food = generateFood();
+    score = 0;
+    scoreDisplay.textContent = 'Score: ' + score;
     gameOver = false;
   }
 }
 
-// Écouter les touches du clavier
 document.addEventListener('keydown', (event) => {
   switch (event.key) {
     case 'ArrowUp':
@@ -83,7 +109,11 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
-// Boucle principale du jeu
+imgFood.onload = () => {
+  food = generateFood();
+  setInterval(gameLoop, 100);
+};
+
 function gameLoop() {
   if (!gameOver) {
     updateSnake();
@@ -91,6 +121,3 @@ function gameLoop() {
     drawGame();
   }
 }
-
-// Exécuter la boucle toutes les 100 ms
-setInterval(gameLoop, 100);
