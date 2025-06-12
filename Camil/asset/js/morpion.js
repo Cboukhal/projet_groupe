@@ -2,7 +2,6 @@ const lignes = document.querySelectorAll("#morpion tr");
 const nombreColonnes = lignes[0].querySelectorAll("td").length;
 const colonnes = {};
 const rejoue = document.getElementById('rejoue');
-let listeners = []; // Pour stocker les références des fonctions
 let sym = 0;
 let fini = false;
 
@@ -57,7 +56,6 @@ function game_over() {
         const valC = colonnes[c[0]][c[1]].textContent.trim();
 
         if (valA !== "" && valA === valB && valA === valC) {
-            // document.getElementById("message").textContent = `Le joueur ${valA} a gagné !`;
             document.getElementById("message").textContent = "Le joueur " + valA + " a gagné !";
             return true;
         }
