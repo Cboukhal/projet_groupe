@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RetroStory est un site dédié aux passionnés de retrogaming. Plongez dans l'histoire fascinante des jeux vidéo classiques, découvrez les origines des consoles mythiques, et amusez-vous avec une sélection de mini-jeux rétro. Que vous soyez nostalgique des premières années du gaming ou curieux d'en apprendre plus, RetroStory vous offre un voyage ludique et instructif dans le temps."/>
+    <meta name="keywords" content="retrogaming, jeux vidéo rétro, histoire du jeu vidéo, consoles classiques, mini jeux, jeux rétro en ligne, Pong, Snake, OXO, jeux d'arcade, culture gaming, jeux vintage, jeux pixel art, passion retrogaming, jeux vidéo classiques, rétro gaming français"/>
+    <meta name="author" content="RetroStory 11/06/2025" />
+    <link rel="icon" type="image/favicon" href="./assets/images/logoRetroStory.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>RetroStory - Snake</title>
+</head>
+<div id="gameOverScreen" class="game-over-screen">
+  <div class="game-over-box">
+    <h2>Game Over !</h2>
+    <p>Score final : <span id="finalScoreValue">0</span></p>
+    <button onclick="restartGame()">Nouvelle Partie</button>
+  </div>
+</div>
+<body>
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="./assets/images/logoRetroStory.png" alt="logo du site RetroStory représentant un contrôleur"></a>
+            <p>RetroStory</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">ACCUEIL</a></li>
+                <li><a href="./article.html">ARTICLES</a></li>
+                <li id="menu-jeux">
+                <a href="./jeux.html">JEUX <span>&#9207;</span></a>
+                <ul class="sousmenu">
+                    <li><a href="./pong.html">PONG</a></li>
+                    <li><a href="./snake.html">SNAKE</a></li>
+                    <li><a href="./oxo.html">OXO</a></li>
+                </ul>
+                </li>
+                <li><a href="./boutique.html">BOUTIQUE</a></li>
+                <li><a href="./forum.html">FORUM</a></li>
+            </ul>
+        </nav>
+        <div class="compte">
+            <a href=""><i class="fa-solid fa-circle-user"></i></a>
+            <p><a href="">Se connecter</a></p>
+        </div>
+    </header>
+    <main>
+        <div class="article-container">
+            <!-- Bannière de jeu -->
+            <div class="game-banner2">
+                <div class="banner-content">
+                    <h1 class="banner-title">SNAKE</h1>
+                    <p class="banner-subtitle">Un jeu simple et addictif.</p>
+                    <a href="#scoredebut"class="btn">JOUER à SNAKE</a>
+                </div>
+            </div>
+            <div id="scoredebut"></div>
+        <canvas id="snake" width="400" height="400"></canvas>
+        <div id="score" style="font-size: 20px; font-weight: bold;">Score: 0</div>
+        <p id="touches" style="font-size: 20px;">Contrôle du snake : <br>Z = ⭡ Q = ⭠ S = ⭣ D = ⭢</p>
+    </main>
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <h3>Plan du site</h3>
+                        <ul>
+                            <li><a href="./index.html">ACCUEIL</a></li>
+                            <li><a href="./article.html">ARTICLES</a></li>
+                            <li><a href="./jeux.html">JEUX</a></li>
+                            <li><a href="./boutique.html">BOUTIQUE</a></li>
+                            <li><a href="./forum.html">FORUM</a></li>
+                        </ul>
+                </td>
+                <td>
+                    <h3>RGPD</h3>
+                    <ul>
+                        <li><a href="">Mentions Légales</a></li>
+                        <li><a href="">Politique de confidentialité</a></li>
+                        <li><a href="">CGU</a></li>
+                        <li><a href="">Politique des cookies</a></li>
+                        <li><a href="">Accessibilité</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <p>&#169; RetroStory 2025. Tous droits réservés.</p>
+    </footer>
+
+    <script src="./assets/Js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/Js/snake.js"></script>
+</body>
+</html>

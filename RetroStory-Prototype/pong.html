@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RetroStory est un site dédié aux passionnés de retrogaming. Plongez dans l'histoire fascinante des jeux vidéo classiques, découvrez les origines des consoles mythiques, et amusez-vous avec une sélection de mini-jeux rétro. Que vous soyez nostalgique des premières années du gaming ou curieux d'en apprendre plus, RetroStory vous offre un voyage ludique et instructif dans le temps."/>
+    <meta name="keywords" content="retrogaming, jeux vidéo rétro, histoire du jeu vidéo, consoles classiques, mini jeux, jeux rétro en ligne, Pong, Snake, OXO, jeux d'arcade, culture gaming, jeux vintage, jeux pixel art, passion retrogaming, jeux vidéo classiques, rétro gaming français"/>
+    <meta name="author" content="RetroStory 11/06/2025" />
+    <link rel="icon" type="image/favicon" href="./assets/images/logoRetroStory.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>RetroStory - Pong</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="./assets/images/logoRetroStory.png" alt="logo du site RetroStory représentant un contrôleur"></a>
+            <p>RetroStory</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="./index.html">ACCUEIL</a></li>
+                <li><a href="./article.html">ARTICLES</a></li>
+                <li id="menu-jeux">
+                <a href="./jeux.html">JEUX <span>&#9207;</span></a>
+                <ul class="sousmenu">
+                    <li><a href="./pong.html">PONG</a></li>
+                    <li><a href="./snake.html">SNAKE</a></li>
+                    <li><a href="./oxo.html">OXO</a></li>
+                </ul>
+                </li>
+                <li><a href="./boutique.html">BOUTIQUE</a></li>
+                <li><a href="./forum.html">FORUM</a></li>
+            </ul>
+        </nav>
+        <div class="compte">
+            <a href=""><i class="fa-solid fa-circle-user"></i></a>
+            <p><a href="">Se connecter</a></p>
+        </div>
+    </header>
+    <main>
+        <div class="article-container">
+            <!-- Bannière de jeu -->
+            <div class="game-banner1">
+                <div class="banner-content">
+                    <h1 class="banner-title">PONG</h1>
+                    <p class="banner-subtitle">Le Père de Tous les Jeux Vidéo</p>
+                    <button class="play-button" onclick="openGameModal()">JOUER à PONG</button>
+                </div>
+            </div>
+        <!-- Modal de jeu -->
+        <div class="game-modal" id="gameModal">
+            <div class="modal-content">
+                <button class="close-modal" onclick="closeGameModal()">×</button>
+                <div class="game-container">
+                    <canvas id="gameCanvas" width="800" height="400"></canvas> 
+                    <div class="center-line"></div>
+                    <div class="score score-left" id="scoreLeft">0</div>
+                    <div class="score score-right" id="scoreRight">0</div>
+                    <div class="controls">
+                        <div>Joueur 1: Z / S | Joueur 2: ↑ / ↓ | Espace: Pause</div>
+                    </div>
+                    <div class="game-over" id="gameOver">
+                        <h2 id="winnerText">Joueur 1 Gagne!</h2>
+                        <p>Score final: <span id="finalScore"></span></p>
+                        <button class="restart-btn" onclick="restartGame()">Nouvelle Partie</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function openGameModal() {
+                document.getElementById('gameModal').style.display = 'flex';
+                // Redémarrer le jeu si nécessaire
+                if (typeof restartGame === 'function') {
+                    restartGame();
+                }
+            }
+
+            function closeGameModal() {
+                document.getElementById('gameModal').style.display = 'none';
+            }
+
+            // Fermer la modal avec Échap
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeGameModal();
+                }
+            });
+
+            // Fermer la modal en cliquant à l'extérieur
+            document.getElementById('gameModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeGameModal();
+                }
+            });
+        </script>
+    </main>
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <h3>Plan du site</h3>
+                        <ul>
+                            <li><a href="./index.html">ACCUEIL</a></li>
+                            <li><a href="./article.html">ARTICLES</a></li>
+                            <li><a href="./jeux.html">JEUX</a></li>
+                            <li><a href="./boutique.html">BOUTIQUE</a></li>
+                            <li><a href="./forum.html">FORUM</a></li>
+                        </ul>
+                </td>
+                <td>
+                    <h3>RGPD</h3>
+                    <ul>
+                        <li><a href="">Mentions Légales</a></li>
+                        <li><a href="">Politique de confidentialité</a></li>
+                        <li><a href="">CGU</a></li>
+                        <li><a href="">Politique des cookies</a></li>
+                        <li><a href="">Accessibilité</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <p>&#169; RetroStory 2025. Tous droits réservés.</p>
+    </footer>
+    <script src="./assets/Js/pong.js"></script>
+    <script src="./assets/Js/jquery-3.7.1.min.js"></script>
+</body>
+</html>
