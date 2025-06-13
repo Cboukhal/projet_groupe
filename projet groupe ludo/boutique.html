@@ -15,6 +15,7 @@
             <option value="">-- Choisir --</option>
             <option value="Console">Console</option>
             <option value="Jeu">Jeu</option>
+            <option value="Accessoire">Accessoire</option>
         </select>
 
         <label for="titre">Titre :</label>
@@ -42,8 +43,55 @@
     </form>
 </div>
 
+<div class="filters-container">
+    <h2>Filtres de recherche</h2>
+    <div class="filters">
+        <div class="filter-group">
+            <label for="filterCategorie">Catégorie :</label>
+            <select id="filterCategorie">
+                <option value="">Toutes</option>
+                <option value="Console">Console</option>
+                <option value="Jeu">Jeu</option>
+                <option value="Accessoire">Accessoire</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="filterEtat">État :</label>
+            <select id="filterEtat">
+                <option value="">Tous</option>
+                <option value="Neuf">Neuf</option>
+                <option value="Bon état">Bon état</option>
+                <option value="Usé">Usé</option>
+                <option value="Très abîmé">Très abîmé</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="filterPrixMin">Prix minimum (€) :</label>
+            <input type="number" id="filterPrixMin" min="0" placeholder="0">
+        </div>
+        
+        <div class="filter-group">
+            <label for="filterPrixMax">Prix maximum (€) :</label>
+            <input type="number" id="filterPrixMax" min="0" placeholder="1000">
+        </div>
+        
+        <div class="filter-group">
+            <label for="filterRecherche">Recherche :</label>
+            <input type="text" id="filterRecherche" placeholder="Titre ou description...">
+        </div>
+    </div>
+    
+    <button class="clear-filters" onclick="clearFilters()">Effacer les filtres</button>
+</div>
+
 <div class="annonces" id="listeAnnonces">
     <h2 style="text-align:center;">Annonces publiées</h2>
+    <div class="results-count" id="resultsCount"></div>
+    <div id="noResults" class="no-results" style="display: none;">
+        Aucune annonce ne correspond à vos critères de recherche.
+    </div>
 </div>
 
 <script src="./Assets/Js/boutique.js"></script>
