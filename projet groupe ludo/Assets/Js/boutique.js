@@ -430,6 +430,13 @@ function createAnnonceElement(annonceData) {
         <p class="description">${annonceData.description}</p>
     `;
 
+    const contactButton = document.createElement('button');
+    contactButton.classList.add('contact-vendeur-btn');
+    contactButton.textContent = 'Contacter le vendeur';
+    contactButton.addEventListener('click', (e) => {
+        contactVendeur(annonceData);
+    });
+    details.appendChild(contactButton);
     annonce.appendChild(imageElement);
     annonce.appendChild(details);
     
@@ -499,6 +506,89 @@ function clearFilters() {
     });
     
     displayAnnonces(allAnnonces);
+}
+
+// Fonction pour contacter le vendeur (exemple simple)
+function contactVendeur(annonceData) {
+    // Trouver l'élément d'annonce parent
+    const annonceElement = document.querySelector(`.annonce[data-titre="${annonceData.titre.toLowerCase()}"]`);
+
+    if (!annonceElement) {
+        console.error("Élément d'annonce non trouvé pour afficher le formulaire.");
+        return;
+    }
+
+    // Vérifier si un formulaire de contact existe déjà pour cette annonce
+    if (annonceElement.querySelector('.contact-form-container')) {
+        return; // Ne pas ajouter plusieurs formulaires
+    }
+
+    const formContainer = document.createElement('div');
+    formContainer.classList.add('contact-form-container');
+    formContainer.style.marginTop = '15px';
+    formContainer.style.padding = '10px';
+    formContainer.style.border = '1px solid #ccc';
+    formContainer.style.backgroundColor = '#f9f9f9';
+    formContainer.style.borderRadius = '5px';
+
+    const messageLabel = document.createElement('label');
+    messageLabel.textContent = `Envoyer un message concernant "${annonceData.titre}" :`;
+    messageLabel.style.display = 'block';
+    messageLabel.style.marginBottom = '5px';
+    messageLabel.style.fontWeight = 'bold';
+
+    const textarea = document.createElement('textarea');
+    textarea.placeholder = "Écrivez votre message ici...";
+    textarea.rows = 4;
+    textarea.style.width = 'calc(100% - 20px)'; // Ajuster pour le padding
+    textarea.style.marginBottom = '10px';
+    textarea.style.padding = '8px';
+    textarea.style.border = '1px solid #ccc';
+    textarea.style.borderRadius = '4px';
+    textarea.style.boxSizing = 'border-box'; // Inclure padding dans la largeur
+
+    const buttonContainer = document.createElement('div');
+    buttonContainer.style.textAlign = 'right';
+
+    const sendButton = document.createElement('button');
+    sendButton.textContent = 'Envoyer le message';
+    sendButton.classList.add('send-message-btn');
+    sendButton.style.marginRight = '5px';
+
+    const cancelButton = document.createElement('button');
+    cancelButton.textContent = 'Annuler';
+    cancelButton.classList.add('cancel-message-btn');
+    cancelButton.style.backgroundColor = '#ccc';
+    cancelButton.style.color = '#333';
+
+    // Event listeners
+    sendButton.addEventListener('click', () => {
+        const messageText = textarea.value.trim();
+        if (messageText) {
+            alert(`Message envoyé pour "${annonceData.titre}" :\n\n${messageText}`);
+            formContainer.remove(); // Fermer le formulaire après envoi (simulé)
+        } else {
+            alert("Votre message ne peut pas être vide.");
+        }
+    });
+
+    cancelButton.addEventListener('click', () => {
+        formContainer.remove(); // Fermer le formulaire
+    });
+
+    // Assembler le formulaire
+    formContainer.appendChild(messageLabel);
+    formContainer.appendChild(textarea);
+    buttonContainer.appendChild(cancelButton);
+    buttonContainer.appendChild(sendButton);
+    formContainer.appendChild(buttonContainer);
+
+    // Insérer le formulaire après les détails de l'annonce
+    annonceElement.appendChild(formContainer);
+
+    // Optionnel : faire défiler jusqu'au formulaire et focus le textarea
+    formContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    textarea.focus();
 }
 
 // Chargement initial des annonces
@@ -584,7 +674,7 @@ function initializeBoutique() {
 // Initialisation quand le DOM est chargé
 document.addEventListener('DOMContentLoaded', initializeBoutique);
 
-// Export pour utilisation en module (optionnel)
+// Export pour utilisation en module
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = { annoncesData, initializeBoutique };
 }
