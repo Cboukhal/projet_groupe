@@ -9,7 +9,7 @@
     <link rel="icon" type="image/favicon" href="./assets/images/logoRetroStory.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>RetroStory - Boutique</title>
+    <title>RetroStory - Connexion</title>
 </head>
 <body>
     <header>
@@ -39,91 +39,52 @@
         </div>
     </header>
     <main>
-        <div class="container">
-            <h1>Mettre en vente une console ou un jeu</h1>
-            <form id="formVente">
-                <label for="categorie">Catégorie :</label>
-                <select id="categorie" required>
-                    <option value="">-- Choisir --</option>
-                    <option value="Console">Console</option>
-                    <option value="Jeu">Jeu</option>
-                </select>
 
-                <label for="titre">Titre :</label>
-                <input type="text" id="titre" required>
+        <table class="logtable">
+            <tr>
+            <td colspan="2"><h2>Connexion</h2></td>
+            </tr>
+            <tr>
+            <td>Email :</td>
+            <td><input type="email" id="login-email" required></td>
+            </tr>
+            <tr>
+            <td>Mot de passe :</td>
+            <td><input type="password" id="login-password" required></td>
+            </tr>
+            <tr>
+            <td colspan="2" style="text-align:center;"><button onclick="login()">Se connecter</button></td>
+            </tr>
 
-                <label for="description">Description :</label>
-                <textarea id="description" rows="4" required></textarea>
+            <tr><td colspan="2"><hr style="border-color:#FFA732;"></td></tr>
 
-                <label for="prix">Prix (€) :</label>
-                <input type="number" id="prix" min="1" required>
-
-                <label for="etat">État :</label>
-                <select id="etat" required>
-                    <option value="">-- Choisir --</option>
-                    <option value="Neuf">Neuf</option>
-                    <option value="Bon état">Bon état</option>
-                    <option value="Usé">Usé</option>
-                    <option value="Très abîmé">Très abîmé</option>
-                </select>
-
-                <label for="image">Photo :</label>
-                <input type="file" id="image" accept="image/*">
-
-                <button type="submit">Publier l'annonce</button>
-            </form>
-        </div>
-
-        <div class="filters-container">
-    <h2>Filtres de recherche</h2>
-    <div class="filters">
-        <div class="filter-group">
-            <label for="filterCategorie">Catégorie :</label>
-            <select id="filterCategorie">
-                <option value="">Toutes</option>
-                <option value="Console">Console</option>
-                <option value="Jeu">Jeu</option>
-                <option value="Accessoire">Accessoire</option>
-            </select>
-        </div>
-        
-        <div class="filter-group">
-            <label for="filterEtat">État :</label>
-            <select id="filterEtat">
-                <option value="">Tous</option>
-                <option value="Neuf">Neuf</option>
-                <option value="Bon état">Bon état</option>
-                <option value="Usé">Usé</option>
-                <option value="Très abîmé">Très abîmé</option>
-            </select>
-        </div>
-        
-        <div class="filter-group">
-            <label for="filterPrixMin">Prix minimum (€) :</label>
-            <input type="number" id="filterPrixMin" min="0" placeholder="0">
-        </div>
-        
-        <div class="filter-group">
-            <label for="filterPrixMax">Prix maximum (€) :</label>
-            <input type="number" id="filterPrixMax" min="0" placeholder="1000">
-        </div>
-        
-        <div class="filter-group">
-            <label for="filterRecherche">Recherche :</label>
-            <input type="text" id="filterRecherche" placeholder="Titre ou description...">
-        </div>
-    </div>
-    
-    <button class="clear-filters" onclick="clearFilters()">Effacer les filtres</button>
-    </div>
-
-    <div class="annonces" id="listeAnnonces">
-        <h2 style="text-align:center;">Annonces publiées</h2>
-        <div class="results-count" id="resultsCount"></div>
-        <div id="noResults" class="no-results" style="display: none;">
-            Aucune annonce ne correspond à vos critères de recherche.
-        </div>
-    </div>
+            <tr>
+            <td colspan="2"><h2>Inscription</h2></td>
+            </tr>
+            <tr>
+            <td>Prénom :</td>
+            <td><input type="text" id="reg-prenom" required></td>
+            </tr>
+            <tr>
+            <td>Nom :</td>
+            <td><input type="text" id="reg-nom" required></td>
+            </tr>
+            <tr>
+            <td>Âge :</td>
+            <td><input type="number" id="reg-age" required></td>
+            </tr>
+            <tr>
+            <td>Email :</td>
+            <td><input type="email" id="reg-email" required></td>
+            </tr>
+            <tr>
+            <td>Mot de passe :</td>
+            <td><input type="password" id="reg-password" required></td>
+            </tr>
+            <tr>
+            <td colspan="2" style="text-align:center;"><button onclick="register()">S'inscrire</button></td>
+            </tr>
+        </table>
 
     </main>
     <footer>
@@ -155,6 +116,6 @@
     </footer>
 
     <script src="./assets/Js/jquery-3.7.1.min.js"></script>
-    <script src="./assets/Js/boutique.js"></script>
+    <script src="./assets/Js/login.js"></script>
 </body>
 </html>

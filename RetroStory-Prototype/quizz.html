@@ -9,7 +9,7 @@
     <link rel="icon" type="image/favicon" href="./assets/images/logoRetroStory.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>RetroStory - Boutique</title>
+    <title>RetroStory - Quiz</title>
 </head>
 <body>
     <header>
@@ -39,91 +39,41 @@
         </div>
     </header>
     <main>
+
         <div class="container">
-            <h1>Mettre en vente une console ou un jeu</h1>
-            <form id="formVente">
-                <label for="categorie">Catégorie :</label>
-                <select id="categorie" required>
-                    <option value="">-- Choisir --</option>
-                    <option value="Console">Console</option>
-                    <option value="Jeu">Jeu</option>
-                </select>
+        <h1>QUIZ RÉTROGAMING</h1>
+        <p class="subtitle">Testez vos connaissances sur les jeux classiques !</p>
 
-                <label for="titre">Titre :</label>
-                <input type="text" id="titre" required>
-
-                <label for="description">Description :</label>
-                <textarea id="description" rows="4" required></textarea>
-
-                <label for="prix">Prix (€) :</label>
-                <input type="number" id="prix" min="1" required>
-
-                <label for="etat">État :</label>
-                <select id="etat" required>
-                    <option value="">-- Choisir --</option>
-                    <option value="Neuf">Neuf</option>
-                    <option value="Bon état">Bon état</option>
-                    <option value="Usé">Usé</option>
-                    <option value="Très abîmé">Très abîmé</option>
-                </select>
-
-                <label for="image">Photo :</label>
-                <input type="file" id="image" accept="image/*">
-
-                <button type="submit">Publier l'annonce</button>
-            </form>
+        <div class="intro" id="intro">
+            <p>Bienvenue dans le quiz ultime du rétrogaming !</p>
+            <p>Vous allez affronter 10 questions aléatoires sur l'univers des jeux vidéo rétro.</p>
+            <p>Des classiques des années 80 aux hits des années 90, êtes-vous prêt à prouver vos connaissances ?</p>
+            <button class="start-btn" onclick="demarrerQuiz()">Commencer le Quiz</button>
         </div>
 
-        <div class="filters-container">
-    <h2>Filtres de recherche</h2>
-    <div class="filters">
-        <div class="filter-group">
-            <label for="filterCategorie">Catégorie :</label>
-            <select id="filterCategorie">
-                <option value="">Toutes</option>
-                <option value="Console">Console</option>
-                <option value="Jeu">Jeu</option>
-                <option value="Accessoire">Accessoire</option>
-            </select>
+        <div class="loading" id="chargement" style="display: none;">
+            <p>Chargement des questions...</p>
         </div>
-        
-        <div class="filter-group">
-            <label for="filterEtat">État :</label>
-            <select id="filterEtat">
-                <option value="">Tous</option>
-                <option value="Neuf">Neuf</option>
-                <option value="Bon état">Bon état</option>
-                <option value="Usé">Usé</option>
-                <option value="Très abîmé">Très abîmé</option>
-            </select>
-        </div>
-        
-        <div class="filter-group">
-            <label for="filterPrixMin">Prix minimum (€) :</label>
-            <input type="number" id="filterPrixMin" min="0" placeholder="0">
-        </div>
-        
-        <div class="filter-group">
-            <label for="filterPrixMax">Prix maximum (€) :</label>
-            <input type="number" id="filterPrixMax" min="0" placeholder="1000">
-        </div>
-        
-        <div class="filter-group">
-            <label for="filterRecherche">Recherche :</label>
-            <input type="text" id="filterRecherche" placeholder="Titre ou description...">
-        </div>
-    </div>
-    
-    <button class="clear-filters" onclick="clearFilters()">Effacer les filtres</button>
-    </div>
 
-    <div class="annonces" id="listeAnnonces">
-        <h2 style="text-align:center;">Annonces publiées</h2>
-        <div class="results-count" id="resultsCount"></div>
-        <div id="noResults" class="no-results" style="display: none;">
-            Aucune annonce ne correspond à vos critères de recherche.
+        <div class="quiz-container" id="quiz-container" style="display: none;">
+            <div class="question-counter" id="compteur-question"></div>
+            <div class="scorequizz" id="scorequizz">Score : 0 sur 10</div>
+
+            <div class="question" id="question-container">
+                <h3 id="texte-question"></h3>
+                <div class="answers" id="conteneur-reponses"></div>
+            </div>
+
+            <button class="next-btn" id="bouton-suivant" onclick="questionSuivante()" style="display: none;">Question Suivante</button>
         </div>
-    </div>
+
+        <div class="results" id="resultats" style="display: none;">
+            <h2>Résultats Finaux</h2>
+            <div class="scorequizz" id="score-final"></div>
+            <p id="message-performance"></p>
+            <button class="restart-btn" onclick="recommencerQuiz()">Rejouer</button>
+        </div>
+        </div>
 
     </main>
     <footer>
@@ -155,6 +105,6 @@
     </footer>
 
     <script src="./assets/Js/jquery-3.7.1.min.js"></script>
-    <script src="./assets/Js/boutique.js"></script>
+    <script src="./assets/Js/quizz.js"></script>
 </body>
 </html>
