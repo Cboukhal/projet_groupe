@@ -1,0 +1,73 @@
+1. Présentation du client
+Nom du projet : RetroStory
+
+Secteur : Culture numérique / Jeux vidéo / Retrogaming
+
+Mission : Offrir une expérience interactive et éducative autour de l’histoire du jeu vidéo, avec une composante communautaire et ludique.
+
+2. Objectifs du site web
+Informer sur l’histoire des jeux vidéo classiques et leurs créateurs.
+
+Proposer une sélection de mini-jeux jouables en ligne (comme Pong, OXO…).
+
+Créer une communauté de passionnés via un forum.
+
+Offrir une boutique avec des produits en lien avec le retrogaming.
+
+Générer du trafic autour de contenus éditoriaux (articles).
+
+3. Public cible
+Passionnés de jeux vidéo rétro, collectionneurs ou nostalgiques.
+
+Adolescents et adultes (15–45 ans).
+
+Internautes francophones amateurs de contenus historiques et interactifs.
+
+Enseignants ou étudiants intéressés par l’évolution des technologies ludiques.
+
+4. Fonctionnalités demandées
+Page d’accueil claire avec une description du site et des liens vers les rubriques clés.
+
+Rubrique “Histoire” présentant :
+
+Des articles sur l’origine du jeu vidéo.
+
+Des fiches historiques (OXO, Pong, Billy Mitchell, etc.).
+
+Mini-jeux jouables directement sur le site (ex : Pong, OXO).
+
+Espace Forum permettant les échanges entre membres.
+
+Page Boutique avec produits à vendre (goodies, livres, objets collectors).
+
+Articles éditoriaux détaillés pour approfondir certains sujets.
+
+Design responsive (adapté aux mobiles).
+
+5. Contenus fournis
+Textes rédigés pour chaque section.
+
+Articles HTML complets déjà créés.
+
+Jeux intégrés en ligne (probablement en JavaScript ou iframe).
+
+Présence d’une charte graphique rétro implicite (ambiance arcade/classique).
+
+6. Contraintes et souhaits
+Le site doit être en français.
+
+Il doit respecter une ambiance visuelle rétro, tout en restant clair.
+
+Nécessité d’une navigation intuitive entre les jeux, l’histoire, les articles et le forum.
+
+Prévoir éventuellement une évolution vers une inscription utilisateur (forum, boutique).
+
+7. Sites inspirants / références
+Aucun spécifiquement mentionné, mais le style évoque des plateformes comme :
+
+Abandonware France
+
+Jeuxvideo.com (section rétro)
+
+Musée du Jeu Vidéo en ligne
+
