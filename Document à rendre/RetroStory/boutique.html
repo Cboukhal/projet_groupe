@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RetroStory est un site dédié aux passionnés de retrogaming. Plongez dans l'histoire fascinante des jeux vidéo classiques, découvrez les origines des consoles mythiques, et amusez-vous avec une sélection de mini-jeux rétro. Que vous soyez nostalgique des premières années du gaming ou curieux d'en apprendre plus, RetroStory vous offre un voyage ludique et instructif dans le temps."/>
+    <meta name="keywords" content="retrogaming, jeux vidéo rétro, histoire du jeu vidéo, consoles classiques, mini jeux, jeux rétro en ligne, Pong, Snake, OXO, jeux d'arcade, culture gaming, jeux vintage, jeux pixel art, passion retrogaming, jeux vidéo classiques, rétro gaming français"/>
+    <meta name="author" content="RetroStory 11/06/2025" />
+    <link rel="icon" type="image/favicon" href="./assets/images/logoRetroStory.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>RetroStory - Boutique</title>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="./index.html"><img src="./assets/images/logoRetroStory.png" alt="logo du site RetroStory représentant un contrôleur"></a>
+            <p>RetroStory</p>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="./index.html">ACCUEIL</a></li>
+                <li><a href="./article.html">ARTICLES</a></li>
+                <li id="menu-jeux">
+                <a href="./jeux.html">JEUX <span>&#9207;</span></a>
+                <ul class="sousmenu">
+                    <li><a href="./pong.html">PONG</a></li>
+                    <li><a href="./snake.html">SNAKE</a></li>
+                    <li><a href="./oxo.html">OXO</a></li>
+                    <li><a href="./quizz.html">QUIZ</a></li>
+                </ul>
+                </li>
+                <li><a href="./boutique.html">MARKETPLACE</a></li>
+                <li><a href="./forum.html">FORUM</a></li>
+            </ul>
+        </nav>
+        <div class="compte">
+            <a href=""><i class="fa-solid fa-circle-user"></i></a>
+            <p><a href="./login.html">Se connecter</a></p>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Mettre en vente une console ou un jeu</h1>
+            <form id="formVente">
+                <label for="categorie">Catégorie :</label>
+                <select id="categorie" required>
+                    <option value="">-- Choisir --</option>
+                    <option value="Console">Console</option>
+                    <option value="Jeu">Jeu</option>
+                </select>
+
+                <label for="titre">Titre :</label>
+                <input type="text" id="titre" required>
+
+                <label for="description">Description :</label>
+                <textarea id="description" rows="4" required></textarea>
+
+                <label for="prix">Prix (€) :</label>
+                <input type="number" id="prix" min="1" required>
+
+                <label for="etat">État :</label>
+                <select id="etat" required>
+                    <option value="">-- Choisir --</option>
+                    <option value="Neuf">Neuf</option>
+                    <option value="Bon état">Bon état</option>
+                    <option value="Usé">Usé</option>
+                    <option value="Très abîmé">Très abîmé</option>
+                </select>
+
+                <label for="image">Photo :</label>
+                <input type="file" id="image" accept="image/*">
+
+                <button type="submit">Publier l'annonce</button>
+            </form>
+        </div>
+
+        <div class="filters-container">
+    <h2>Filtres de recherche</h2>
+    <div class="filters">
+        <div class="filter-group">
+            <label for="filterCategorie">Catégorie :</label>
+            <select id="filterCategorie">
+                <option value="">Toutes</option>
+                <option value="Console">Console</option>
+                <option value="Jeu">Jeu</option>
+                <option value="Accessoire">Accessoire</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="filterEtat">État :</label>
+            <select id="filterEtat">
+                <option value="">Tous</option>
+                <option value="Neuf">Neuf</option>
+                <option value="Bon état">Bon état</option>
+                <option value="Usé">Usé</option>
+                <option value="Très abîmé">Très abîmé</option>
+            </select>
+        </div>
+        
+        <div class="filter-group">
+            <label for="filterPrixMin">Prix minimum (€) :</label>
+            <input type="number" id="filterPrixMin" min="0" placeholder="0">
+        </div>
+        
+        <div class="filter-group">
+            <label for="filterPrixMax">Prix maximum (€) :</label>
+            <input type="number" id="filterPrixMax" min="0" placeholder="1000">
+        </div>
+        
+        <div class="filter-group">
+            <label for="filterRecherche">Recherche :</label>
+            <input type="text" id="filterRecherche" placeholder="Titre ou description...">
+        </div>
+    </div>
+    
+    <button class="clear-filters" onclick="clearFilters()">Effacer les filtres</button>
+    </div>
+
+    <div class="annonces" id="listeAnnonces">
+        <h2 style="text-align:center;">Annonces publiées</h2>
+        <div class="results-count" id="resultsCount"></div>
+        <div id="noResults" class="no-results" style="display: none;">
+            Aucune annonce ne correspond à vos critères de recherche.
+        </div>
+    </div>
+
+    </main>
+    <footer>
+        <table>
+            <tr>
+                <td>
+                    <h3>Plan du site</h3>
+                        <ul>
+                            <li><a href="./index.html">ACCUEIL</a></li>
+                            <li><a href="./article.html">ARTICLES</a></li>
+                            <li><a href="./jeux.html">JEUX</a></li>
+                            <li><a href="./boutique.html">MARKETPLACE</a></li>
+                            <li><a href="./forum.html">FORUM</a></li>
+                        </ul>
+                </td>
+                <td>
+                    <h3>RGPD</h3>
+                    <ul>
+                        <li><a href="./ML.html">Mentions Légales</a></li>
+                        <li><a href="./pdconfi.html">Politique de confidentialité</a></li>
+                        <li><a href="./CGU.html">CGU</a></li>
+                        <li><a href="./pdcookie.html">Politique des cookies</a></li>
+                        <li><a href="./accessibilite.html">Accessibilité</a></li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
+        <p>&#169; RetroStory 2025. Tous droits réservés.</p>
+    </footer>
+
+    <script src="./assets/Js/jquery-3.7.1.min.js"></script>
+    <script src="./assets/Js/boutique.js"></script>
+</body>
+</html>
