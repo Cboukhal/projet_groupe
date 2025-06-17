@@ -132,7 +132,7 @@ const retrogamingQuestions = [
             }
         ];
 
-async function chargerQuestions() {
+function chargerQuestions() {
     // Sélection aléatoire de 10 questions parmi les questions disponibles
     questions = obtenirQuestionsAleatoires(retrogamingQuestions, 10);
 }
@@ -153,11 +153,11 @@ function melangerTableau(array) {
     return tableau;
 }
 
-async function demarrerQuiz() {
+function demarrerQuiz() {
     document.getElementById('intro').style.display = 'none';
     document.getElementById('chargement').style.display = 'block';
 
-    await chargerQuestions();
+    chargerQuestions();
 
     document.getElementById('chargement').style.display = 'none';
     document.getElementById('quiz-container').style.display = 'block';
