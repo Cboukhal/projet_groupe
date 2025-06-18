@@ -141,8 +141,8 @@ function resetBall() {
     const ball = gameState.ball;
     ball.x = canvas.width / 2;
     ball.y = canvas.height / 2;
-    ball.dx = (Math.random() > 0.5 ? 1 : -1) * 5;
-    ball.dy = (Math.random() - 0.5) * 6;
+    ball.dx = (Math.random() > 0.5 ? 1 : -1) * 2;
+    ball.dy = (Math.random() - 0.5) * 4;
 }
 
 function updateScore() {
