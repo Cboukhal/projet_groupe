@@ -76,7 +76,7 @@ function symbole(){
                     return;
                 jouer(i,j,sym);
                 fini = game_over();
-                if(egalite()==true)
+                if(egalite()==true && fini == false)
                 {
                     document.getElementById("message").textContent = "Aucun joueur n'a gagné ! Vous êtes à égalité";
                     return;
